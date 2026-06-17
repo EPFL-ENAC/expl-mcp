@@ -1,0 +1,30 @@
+[project]
+name = "expl-mcp"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Son Pham-Ba", email = "son.phamba@epfl.ch" },
+]
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+
+dependencies = [
+    "fastmcp>=3.4.2",
+    "pydantic-settings>=2.14.1",
+]
+
+[tool.setuptools]
+packages = ["expl_mcp"]
+
+[tool.codespell]
+skip = 'uv.lock'
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[dependency-groups]
+dev = [
+    "dotenv>=0.9.9",
+    "pytest>=9.0.3",
+    "python-dotenv[cli]>=1.2.2",
+]
