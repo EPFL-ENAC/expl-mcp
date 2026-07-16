@@ -7,7 +7,6 @@ from fastmcp.server.auth.providers.jwt import StaticTokenVerifier
 
 from expl_mcp.config import config
 
-
 auth = StaticTokenVerifier(
     tokens={
         config.MCP_API_KEY: {

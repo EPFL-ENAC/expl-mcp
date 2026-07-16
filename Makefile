@@ -12,13 +12,13 @@ test:
 	uv run dotenv -f "$(env_path)" run pytest
 
 typecheck:
-	uvx lefthook run pre-commit --command backend-typecheck --all-files
+	uvx lefthook run pre-commit --command typecheck --all-files
 
 lint:
-	uvx lefthook run pre-commit --command backend-lint --all-files
+	uvx lefthook run pre-commit --command lint --all-files
 
 format:
-	uvx lefthook run pre-commit --command backend-format --all-files
+	uvx lefthook run pre-commit --command format --all-files
 
 generate-openapi-json:
 	uv run python scripts/generate_openapi_json.py

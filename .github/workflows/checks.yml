@@ -15,12 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - frontend-typecheck
-          - frontend-lint
-          - frontend-format
-          - backend-typecheck
-          - backend-lint
-          - backend-format
+          - typecheck
+          - lint
+          - format
 
     steps:
       - name: Checkout code
@@ -31,20 +28,10 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-
       - name: Install uv and all dependencies
         run: |
           pip install uv
           make install
-
-      - name: Prepare Quasar (for frontend checks)
-        if: startsWith(matrix.command, 'frontend-')
-        working-directory: frontend
-        run: npx quasar prepare
 
       - name: Run ${{ matrix.command }}
         run: uvx lefthook run pre-commit --command ${{ matrix.command }} --all-files
