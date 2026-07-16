@@ -15,6 +15,6 @@ COPY uv.lock pyproject.toml /app/
 COPY start.sh /app/
 COPY expl_mcp /app/expl_mcp
 
-RUN uv pip install --system --no-cache-dir -e /expl_mcp
+RUN uv pip install --system --no-cache-dir -e /app
 
 ENTRYPOINT ["sh", "start.sh"]
