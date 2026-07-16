@@ -4,6 +4,8 @@ from pathlib import Path
 import httpx
 from fastmcp import FastMCP
 from fastmcp.server.auth.providers.jwt import StaticTokenVerifier
+from starlette.requests import Request
+from starlette.responses import JSONResponse
 
 from expl_mcp.config import config
 
@@ -33,6 +35,12 @@ mcp = FastMCP.from_openapi(
     instructions="Provides an interface the EXPL unit's AREE API.",
     auth=auth,
 )
+
+
+@mcp.custom_route("/healthz", methods=["GET"])
+async def healthz(request: Request) -> JSONResponse:
+    return JSONResponse({"status": "OK"})
+
 
 if __name__ == "__main__":
     mcp.run()
