@@ -19,3 +19,6 @@ lint:
 
 format:
 	uvx lefthook run pre-commit --command backend-format --all-files
+
+generate-openapi-json:
+	uv run python scripts/generate_openapi_json.py

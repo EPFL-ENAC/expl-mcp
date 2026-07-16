@@ -27,3 +27,11 @@ make run
 ```
 
 The MCP server will run at [http://localhost:8000/mcp](http://localhost:8000/mcp).
+
+Tools definition rely on http://aree.epfl.ch/AREEService/doc/swagger.json. The servers needs an OpenAPI specifiction. To regenerate it, run:
+
+```bash
+make generate-openapi-json
+```
+
+which will write to `expl_mcp/openapi.json`.
