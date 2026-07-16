@@ -6,7 +6,7 @@ install:
 	test -f .env || cp .env.example .env
 
 run:
-	uv run dotenv -f "$(env_path)" run fastmcp run expl_mcp/main.py:mcp --transport http --port 8000 --reload
+	uv run dotenv -f "$(env_path)" run fastmcp run expl_mcp/main.py:mcp --transport http --host 0.0.0.0 --port 8000 --reload
 
 test:
 	uv run dotenv -f "$(env_path)" run pytest
