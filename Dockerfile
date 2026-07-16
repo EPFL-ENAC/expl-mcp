@@ -1,5 +1,5 @@
-FROM python:3.13.6-bookworm
-ENV UV_VERSION=0.9.13
+FROM python:3.13.14-bookworm
+ENV UV_VERSION=0.11.29
 
 # System dependencies
 RUN apt update \
