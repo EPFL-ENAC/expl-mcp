@@ -744,6 +744,39 @@
         }
       }
     },
+    "/energyUnits/ImportEFA": {
+      "post": {
+        "operationId": "Innergy.Service.AREEService.ImportEFA",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/System.IO.Stream"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/System.IO.Stream"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "not available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "stream"
+      }
+    },
     "/eventlogs": {
       "get": {
         "tags": [
