@@ -288,6 +288,42 @@
         }
       }
     },
+    "/alarmlevelsets": {
+      "get": {
+        "tags": [
+          "AlarmLevelSets"
+        ],
+        "summary": "Get alarm levels",
+        "description": "Get a list of the alarm levels",
+        "operationId": "Innergy.Service.AREEService.GetAlarmLevelSets",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of alarm levels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PointAlarmLevelSet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/alarms": {
       "get": {
         "tags": [
@@ -354,11 +390,58 @@
         }
       }
     },
+    "/autoreports": {
+      "get": {
+        "tags": [
+          "AutoReports"
+        ],
+        "summary": "Get auto reports",
+        "description": "Get a list of the auto reports",
+        "operationId": "Innergy.Service.AREEService.GetAutoReport",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of auto reports",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.AutoReportDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/calendars": {
       "get": {
         "tags": [
           "Plannings"
         ],
+        "summary": "Get calendars",
+        "description": "Get a list of the calendars",
         "operationId": "Innergy.Service.AREEService.GetCalendars",
         "parameters": [
           {
@@ -429,6 +512,8 @@
         "tags": [
           "Plannings"
         ],
+        "summary": "Get plannings",
+        "description": "Get a list of the plannings",
         "operationId": "Innergy.Service.AREEService.GetChronoPrograms",
         "parameters": [
           {
@@ -450,6 +535,111 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Inneasoft.Dto.ChronoProgramDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/colorlevels": {
+      "get": {
+        "tags": [
+          "ColorLevels"
+        ],
+        "summary": "Get color levels",
+        "description": "Get a list of the color levels",
+        "operationId": "Innergy.Service.AREEService.GetColorLevels",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of color levels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InneaLink.Dto.ColorLevelSetDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get comments",
+        "description": "Get a list of the comments",
+        "operationId": "Innergy.Service.AREEService.GetComments",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of comments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.CommentDto"
                   }
                 }
               }
@@ -484,6 +674,51 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/CustomProperty"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dataproviders": {
+      "get": {
+        "tags": [
+          "Dataproviders"
+        ],
+        "summary": "Get data providers",
+        "description": "Get a list of the data providers",
+        "operationId": "Innergy.Service.AREEService.GetDataProviders",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of data providers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InneaLink.Dto.DataProviderDto"
                   }
                 }
               }
@@ -744,39 +979,6 @@
         }
       }
     },
-    "/energyUnits/ImportEFA": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.ImportEFA",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/System.IO.Stream"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/System.IO.Stream"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "stream"
-      }
-    },
     "/eventlogs": {
       "get": {
         "tags": [
@@ -878,6 +1080,51 @@
         }
       }
     },
+    "/folders": {
+      "get": {
+        "tags": [
+          "Folders"
+        ],
+        "summary": "Get folders",
+        "description": "Get a list of the folders",
+        "operationId": "Innergy.Service.AREEService.GetFolders",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of folders",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Inneasoft.Dto.FolderDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/GetAttributeValues": {
       "post": {
         "tags": [
@@ -942,39 +1189,43 @@
         "x-codegen-request-body-name": "parameter"
       }
     },
-    "/grouptonatures": {
+    "/groups": {
       "get": {
         "tags": [
-          "Natures"
+          "Groups"
         ],
-        "operationId": "Innergy.Service.AREEService.GetGroupToNatures",
+        "summary": "Get groups",
+        "description": "Get a list of the groups",
+        "operationId": "Innergy.Service.AREEService.GetGroups",
         "parameters": [
           {
-            "name": "id",
+            "name": "site",
             "in": "query",
-            "description": "Group to nature id",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
-            "name": "groupId",
+            "name": "id",
             "in": "query",
-            "description": "Nature group id",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of groups",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Innergy.Dto.NatureGroupToNatureDto"
+                    "$ref": "#/components/schemas/Innergy.Dto.GroupDto"
                   }
                 }
               }
@@ -1096,6 +1347,132 @@
         }
       }
     },
+    "/maps": {
+      "get": {
+        "tags": [
+          "Plans"
+        ],
+        "summary": "Get plans",
+        "description": "Get a list of the plans",
+        "operationId": "Innergy.Service.AREEService.GetMaps",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "xml",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of plans",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.MapDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meterproperties": {
+      "get": {
+        "tags": [
+          "MeterProperties"
+        ],
+        "summary": "Get meter properties",
+        "description": "Get meter properties",
+        "operationId": "Innergy.Service.AREEService.GetMeterProperties",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meter properties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MeterProperty"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MeterProperties"
+        ],
+        "summary": "Set meter properties",
+        "description": "Set meter properties",
+        "operationId": "Innergy.Service.AREEService.SetMeterProperties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MeterProperty"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Meter properties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MeterProperty"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "items"
+      }
+    },
     "/meters": {
       "get": {
         "tags": [
@@ -1200,6 +1577,8 @@
         "tags": [
           "Natures"
         ],
+        "summary": "Get natures",
+        "description": "Get a list of the natures",
         "operationId": "Innergy.Service.AREEService.GetNatures",
         "parameters": [
           {
@@ -1213,8 +1592,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of natures",
             "content": {
               "application/json": {
                 "schema": {
@@ -1227,396 +1606,108 @@
             }
           }
         }
-      },
-      "put": {
+      }
+    },
+    "/points": {
+      "get": {
         "tags": [
-          "Natures"
+          "Points"
         ],
-        "operationId": "Innergy.Service.AREEService.SetNatures",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Nature"
-                }
-              }
+        "summary": "Get points",
+        "description": "Get a list of the points",
+        "operationId": "Innergy.Service.AREEService.GetPoints",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
             }
           },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Nature"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "items"
-      },
-      "delete": {
-        "tags": [
-          "Natures"
-        ],
-        "operationId": "Innergy.Service.AREEService.DeleteNatures",
-        "parameters": [
           {
             "name": "id",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "folder",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "addvalue",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/"
-                }
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of points",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "integer",
-                    "format": "int64"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "ids"
-      }
-    },
-    "/natures/{id}/addtogroup": {
-      "post": {
-        "tags": [
-          "Natures"
-        ],
-        "operationId": "Innergy.Service.AREEService.AddNatureToGroup",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "groupId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "negative",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InneaComm.Dto.CallModuleResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/natures/{id}/removefromgroup": {
-      "post": {
-        "tags": [
-          "Natures"
-        ],
-        "operationId": "Innergy.Service.AREEService.RemoveNatureFromGroup",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "groupId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InneaComm.Dto.CallModuleResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scanbill/lastRun": {
-      "get": {
-        "operationId": "Innergy.Service.AREEService.GetScanBillLastRun",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillAutoStateDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scanbill/licenseStatus": {
-      "get": {
-        "operationId": "Innergy.Service.AREEService.GetScanBillLicenseStatus",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.Innergy.Dto.LicenseStatusDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scanbill/nextRun": {
-      "get": {
-        "operationId": "Innergy.Service.AREEService.GetScanBillNextRun",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scanbill/options": {
-      "get": {
-        "operationId": "Innergy.Service.AREEService.GetScanBillOptions",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillOptionsDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "operationId": "Innergy.Service.AREEService.SaveScanBillOptions",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillOptionsDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.SimpleResult"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "p"
-      }
-    },
-    "/scanbill/process": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.ProcessScanBillPdfs",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Innergy.Dto.Objects.Innergy.Dto.ScanBillProcessParameterDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillProcessResultDto"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "p"
-      }
-    },
-    "/scanbill/processConfigured": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.ProcessScanBillConfigured",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillProcessResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/scanbill/rescanFolder": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.RescanScanBillFolder",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillRescanFolderParameterDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillProcessResultDto"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "p"
-      }
-    },
-    "/scanbill/rules": {
-      "get": {
-        "operationId": "Innergy.Service.AREEService.GetScanBillRules",
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Innergy.Dto.Objects.Innergy.Dto.ScanBillRuleDto"
+                    "$ref": "#/components/schemas/InneaLink.Dto.PointDto"
                   }
                 }
               }
             }
           }
         }
-      },
-      "post": {
-        "operationId": "Innergy.Service.AREEService.UploadScanBillRule",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Innergy.Dto.Objects.Innergy.Dto.UploadScanBillRuleParameterDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.SimpleResult"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "p"
       }
     },
-    "/scanbill/runNow": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.RunScanBillNow",
+    "/reportbooks": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Get reports",
+        "description": "Get a list of the reports",
+        "operationId": "Innergy.Service.AREEService.GetReportBooks",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of reports",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Innergy.Dto.SimpleResult"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.ReportBookDto"
+                  }
                 }
               }
             }
@@ -1624,52 +1715,94 @@
         }
       }
     },
-    "/scanbill/uploadPdf": {
-      "post": {
-        "operationId": "Innergy.Service.AREEService.UploadScanBillPdf",
+    "/reportlists": {
+      "get": {
+        "tags": [
+          "DashboardLists"
+        ],
+        "summary": "Get dashboard lists",
+        "description": "Get a list of the dashboard lists",
+        "operationId": "Innergy.Service.AREEService.GetReportLists",
         "parameters": [
           {
-            "name": "fileName",
+            "name": "site",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/System.IO.Stream"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/System.IO.Stream"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of dashboard lists",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.ReportListDto"
+                  }
                 }
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "fileContents"
+        }
+      }
+    },
+    "/reports": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "summary": "Get dashboards",
+        "description": "Get a list of the dashboards",
+        "operationId": "Innergy.Service.AREEService.GetReports",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of dashboards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.ReportDto"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/securityroles": {
@@ -1677,6 +1810,8 @@
         "tags": [
           "Roles"
         ],
+        "summary": "Get roles",
+        "description": "Get a list of the roles",
         "operationId": "Innergy.Service.AREEService.GetSecurityRoles",
         "parameters": [
           {
@@ -1699,8 +1834,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of roles",
             "content": {
               "application/json": {
                 "schema": {
@@ -1942,8 +2077,10 @@
     "/sites": {
       "get": {
         "tags": [
-          "Sites"
+          "Organizations"
         ],
+        "summary": "Get organizations",
+        "description": "Get a list of the organizations",
         "operationId": "Innergy.Service.AREEService.GetSites",
         "parameters": [
           {
@@ -1958,81 +2095,14 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of organizations",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Innergy.Dto.SiteDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Sites"
-        ],
-        "operationId": "Innergy.Service.AREEService.SetSites",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Innergy.Dto.SiteDto"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Innergy.Dto.SiteDto"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name": "items"
-      },
-      "delete": {
-        "tags": [
-          "Sites"
-        ],
-        "operationId": "Innergy.Service.AREEService.DeleteSites",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "not available",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "integer",
-                    "format": "int64"
                   }
                 }
               }
@@ -2153,6 +2223,78 @@
         }
       }
     },
+    "/states": {
+      "get": {
+        "tags": [
+          "States"
+        ],
+        "summary": "Get states",
+        "description": "Get a list of the states",
+        "operationId": "Innergy.Service.AREEService.GetStates",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of states",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InneaLink.Dto.DiscreteVariableStateSetDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tariffs": {
+      "get": {
+        "tags": [
+          "Tariffs"
+        ],
+        "summary": "Get tariffs",
+        "description": "Get a list of the tariffs",
+        "operationId": "Innergy.Service.AREEService.GetTariffs",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of tariffs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.TariffDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/translation": {
       "get": {
         "tags": [
@@ -2190,10 +2332,159 @@
         }
       }
     },
+    "/trendfilters": {
+      "get": {
+        "tags": [
+          "TrendFilters"
+        ],
+        "summary": "Get trend filters",
+        "description": "Get a list of the trend filters",
+        "operationId": "Innergy.Service.AREEService.GetTrendFilters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of trend filters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InneaLink.Dto.TrendFilterDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trendgroups": {
+      "get": {
+        "tags": [
+          "Trendgroups"
+        ],
+        "summary": "Get trend groups",
+        "description": "Get a list of the trend groups",
+        "operationId": "Innergy.Service.AREEService.GetTrendGroups",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of trend groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.TrendGroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trendinfo": {
+      "get": {
+        "tags": [
+          "Trends"
+        ],
+        "summary": "Get trend info",
+        "description": "Get information about a specific trend",
+        "operationId": "Innergy.Service.AREEService.GetTrendInfo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trend information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Innergy.Dto.GenericItemsResult`1[[InneaLink.Dto.TrendHistoryInfoDto, InneaLink.Dto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4818c8506c2659c]]"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trends": {
+      "get": {
+        "tags": [
+          "Trends"
+        ],
+        "summary": "Get trends",
+        "description": "Get a list of the trends",
+        "operationId": "Innergy.Service.AREEService.GetTrends",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of trends",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InneaLink.Dto.TrendDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/udds": {
       "get": {
         "tags": [
-          "Degree days"
+          "DegreeDays"
         ],
         "summary": "Get degree days",
         "description": "Get a list of degree days series",
@@ -2232,6 +2523,8 @@
         "tags": [
           "Units"
         ],
+        "summary": "Get units",
+        "description": "Get a list of the units",
         "operationId": "Innergy.Service.AREEService.GetUnits",
         "parameters": [
           {
@@ -2245,8 +2538,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of units",
             "content": {
               "application/json": {
                 "schema": {
@@ -2293,6 +2586,51 @@
         }
       }
     },
+    "/usergroups": {
+      "get": {
+        "tags": [
+          "UserGroups"
+        ],
+        "summary": "Get user groups",
+        "description": "Get a list of the user groups",
+        "operationId": "Innergy.Service.AREEService.GetUserGroups",
+        "parameters": [
+          {
+            "name": "site",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Collection of user groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Innergy.Dto.UserGroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users": {
       "get": {
         "tags": [
@@ -2321,8 +2659,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "not available",
+          "200": {
+            "description": "Collection of users",
             "content": {
               "application/json": {
                 "schema": {
@@ -2439,7 +2777,7 @@
         "tags": [
           "Users"
         ],
-        "summary": "Get users",
+        "summary": "Get deleted users",
         "description": "Get a list of the deleted users",
         "operationId": "Innergy.Service.AREEService.GetDeletedUsers",
         "responses": {
@@ -2513,6 +2851,28 @@
                   "items": {
                     "$ref": "#/components/schemas/Event"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "summary": "Get version information",
+        "description": "Get version information",
+        "operationId": "Innergy.Service.AREEService.CheckVersionUpdate",
+        "responses": {
+          "200": {
+            "description": "Version information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inneasoft.License.VersionServerResponse"
                 }
               }
             }
@@ -3805,17 +4165,97 @@
         },
         "format": "GetConsumptionHistoryExResult"
       },
-      "InneaComm.Dto.CallModuleResultDto": {
+      "GroupDefinition": {
         "type": "object",
         "properties": {
-          "Succeeded": {
+          "NoMeterDependency": {
             "type": "boolean"
           },
-          "Error": {
+          "Language": {
+            "type": "string"
+          },
+          "Identifier": {
+            "type": "string"
+          },
+          "EnergyUnit": {
+            "$ref": "#/components/schemas/Innergy.Dto.OperatDefinition"
+          }
+        },
+        "format": "GroupDefinition"
+      },
+      "InneaLink.Dto.ColorLevelDto": {
+        "type": "object",
+        "properties": {
+          "Color": {
+            "type": "string"
+          },
+          "Label": {
+            "type": "string"
+          },
+          "Value": {
             "type": "string"
           }
         },
-        "format": "InneaComm.Dto.CallModuleResultDto"
+        "format": "InneaLink.Dto.ColorLevelDto"
+      },
+      "InneaLink.Dto.ColorLevelSetDto": {
+        "type": "object",
+        "properties": {
+          "Levels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InneaLink.Dto.ColorLevelDto"
+            }
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.ColorLevelSetDto"
+      },
+      "InneaLink.Dto.DataProviderDto": {
+        "type": "object",
+        "properties": {
+          "IsClient": {
+            "type": "boolean"
+          },
+          "IsServer": {
+            "type": "boolean"
+          },
+          "IsLoaded": {
+            "type": "boolean"
+          },
+          "UniqueId": {
+            "type": "string",
+            "format": "guid"
+          },
+          "SetupModule": {
+            "type": "string"
+          },
+          "State": {
+            "type": "integer",
+            "description": "\r\n\r\n    Enabled = 0 \r\n    Disabled = 1 \r\n    Denied = 2 \r\n    Error = 3 \r\n",
+            "format": "enum"
+          },
+          "IsInternal": {
+            "type": "boolean"
+          },
+          "ShortName": {
+            "type": "string"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.DataProviderDto"
       },
       "InneaLink.Dto.DeviceNetworkInfo": {
         "type": "object",
@@ -3848,6 +4288,317 @@
           }
         },
         "format": "InneaLink.Dto.DeviceNetworkInfo"
+      },
+      "InneaLink.Dto.DiscreteVariableStateSetDto": {
+        "type": "object",
+        "properties": {
+          "States": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InneaLink.Dto.NameValueDto"
+            }
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.DiscreteVariableStateSetDto"
+      },
+      "InneaLink.Dto.NameValueDto": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "format": "InneaLink.Dto.NameValueDto"
+      },
+      "InneaLink.Dto.PointDto": {
+        "type": "object",
+        "properties": {
+          "Description": {
+            "type": "string"
+          },
+          "DataProviderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Reference": {
+            "type": "string"
+          },
+          "Unit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsAutoUnit": {
+            "type": "boolean"
+          },
+          "Coefficient": {
+            "type": "number",
+            "format": "double"
+          },
+          "Offset": {
+            "type": "number",
+            "format": "double"
+          },
+          "NullAsZero": {
+            "type": "boolean"
+          },
+          "FolderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "StateId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DeviceId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "LocationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DevicePointReference": {
+            "type": "string"
+          },
+          "TrendStrategy": {
+            "$ref": "#/components/schemas/InneaLink.Dto.TrendStrategyDto"
+          },
+          "IsInternal": {
+            "type": "boolean"
+          },
+          "HasTrend": {
+            "type": "boolean"
+          },
+          "LevelSetId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Value": {
+            "$ref": "#/components/schemas/System.Object"
+          },
+          "Text": {
+            "type": "string"
+          },
+          "State": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Linked": {
+            "type": "boolean"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.PointDto"
+      },
+      "InneaLink.Dto.TrendDto": {
+        "type": "object",
+        "properties": {
+          "Description": {
+            "type": "string"
+          },
+          "PointId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Period": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DataProviderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Reference": {
+            "type": "string"
+          },
+          "DevicePointReference": {
+            "type": "string"
+          },
+          "UnitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsAutoUnit": {
+            "type": "boolean"
+          },
+          "IsInternal": {
+            "type": "boolean"
+          },
+          "DeviceId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "StateId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "LevelSetId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "IsUsed": {
+            "type": "boolean"
+          },
+          "LocationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Unit": {
+            "type": "string"
+          },
+          "FilterId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ForceRemoteSync": {
+            "type": "boolean"
+          },
+          "RemoteId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "RemoteDataProviderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Coef": {
+            "type": "number",
+            "format": "double"
+          },
+          "Offset": {
+            "type": "number",
+            "format": "double"
+          },
+          "NullAsZero": {
+            "type": "boolean"
+          },
+          "DateMin": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateMax": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "LastValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "FolderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.TrendDto"
+      },
+      "InneaLink.Dto.TrendFilterDto": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InneaLink.Dto.TrendFilterItemDto"
+            }
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "InneaLink.Dto.TrendFilterDto"
+      },
+      "InneaLink.Dto.TrendFilterItemDto": {
+        "type": "object",
+        "properties": {
+          "Condition": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "format": "InneaLink.Dto.TrendFilterItemDto"
+      },
+      "InneaLink.Dto.TrendHistoryInfoDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DateMin": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateMax": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "LastValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "Linked": {
+            "type": "boolean"
+          }
+        },
+        "format": "InneaLink.Dto.TrendHistoryInfoDto"
+      },
+      "InneaLink.Dto.TrendStrategyDto": {
+        "type": "object",
+        "properties": {
+          "Enabled": {
+            "type": "boolean"
+          },
+          "Period": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "format": "InneaLink.Dto.TrendStrategyDto"
       },
       "Inneasoft.Dto.AuditItem": {
         "type": "object",
@@ -4119,6 +4870,34 @@
           }
         },
         "format": "Inneasoft.Dto.ChronoProgramItemDto"
+      },
+      "Inneasoft.Dto.FolderDto": {
+        "type": "object",
+        "properties": {
+          "ParentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SiteIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Inneasoft.Dto.FolderDto"
       },
       "Inneasoft.Dto.GeoLocationDto": {
         "type": "object",
@@ -4439,6 +5218,31 @@
         },
         "format": "Inneasoft.Dto.WeekAndDay"
       },
+      "Inneasoft.License.VersionServerResponse": {
+        "type": "object",
+        "properties": {
+          "SupportDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "InstalledVersion": {
+            "type": "string"
+          },
+          "LatestVersion": {
+            "type": "string"
+          },
+          "LatestAllowedVersion": {
+            "type": "string"
+          },
+          "UpdateAvailable": {
+            "type": "boolean"
+          },
+          "ConnectionFailed": {
+            "type": "boolean"
+          }
+        },
+        "format": "Inneasoft.License.VersionServerResponse"
+      },
       "Innergy.Dto.ActionDistributionDefinition": {
         "type": "object",
         "properties": {
@@ -4540,6 +5344,155 @@
         },
         "format": "Innergy.Dto.AdjustmentVariableDefinition"
       },
+      "Innergy.Dto.AutoReportDto": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.AutoReportItemDto"
+            }
+          },
+          "Recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.RecipientDto"
+            }
+          },
+          "Period": {
+            "type": "string"
+          },
+          "Subject": {
+            "type": "string"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Definition": {
+            "type": "string"
+          },
+          "NextOccurrence": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "NextDataStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "LastDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "IsRunning": {
+            "type": "boolean"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.AutoReportDto"
+      },
+      "Innergy.Dto.AutoReportItemDto": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "integer",
+            "description": "\r\n\r\n    Report = 0 \r\n    TrendHistoryFile = 1 \r\n    MultiTrendHistoryFile = 2 \r\n    ConsumptionFile = 3 \r\n    View = 4 \r\n",
+            "format": "enum"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Period": {
+            "type": "string"
+          },
+          "FileName": {
+            "type": "string"
+          },
+          "Param": {
+            "type": "string"
+          },
+          "Format": {
+            "type": "string"
+          },
+          "OneReportPerElement": {
+            "type": "boolean"
+          },
+          "UseUserLocations": {
+            "type": "boolean"
+          }
+        },
+        "format": "Innergy.Dto.AutoReportItemDto"
+      },
+      "Innergy.Dto.CommentDto": {
+        "type": "object",
+        "properties": {
+          "Date1": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Date2": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "CategoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Text": {
+            "type": "string"
+          },
+          "EntityType": {
+            "type": "integer",
+            "description": "\r\n\r\n    Meter = 0 \r\n    Location = 1 \r\n    Group = 2 \r\n",
+            "format": "enum"
+          },
+          "EntityId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Deleted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DeletedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ModifiedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.CommentDto"
+      },
       "Innergy.Dto.DeleteImageResultDto": {
         "type": "object",
         "properties": {
@@ -4608,6 +5561,31 @@
         },
         "format": "Innergy.Dto.EventLogTypeDto"
       },
+      "Innergy.Dto.GenericItemsResult`1[[InneaLink.Dto.TrendHistoryInfoDto, InneaLink.Dto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4818c8506c2659c]]": {
+        "type": "object",
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Error": {
+            "type": "string"
+          },
+          "ErrorCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Partial": {
+            "type": "boolean"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InneaLink.Dto.TrendHistoryInfoDto"
+            }
+          }
+        },
+        "format": "Innergy.Dto.GenericItemsResult`1[[InneaLink.Dto.TrendHistoryInfoDto, InneaLink.Dto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4818c8506c2659c]]"
+      },
       "Innergy.Dto.GenericItemsResult`1[[Innergy.Dto.EventDto, Innergy.Dto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4818c8506c2659c]]": {
         "type": "object",
         "properties": {
@@ -4658,6 +5636,97 @@
         },
         "format": "Innergy.Dto.GenericItemsResult`1[[Innergy.Dto.EventLogDto, Innergy.Dto, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4818c8506c2659c]]"
       },
+      "Innergy.Dto.GroupDto": {
+        "type": "object",
+        "properties": {
+          "ParentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Area": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Type": {
+            "type": "integer",
+            "description": "\r\n\r\n    Group = 0 \r\n    Tenant = 1 \r\n    EnergyUnit = 2 \r\n",
+            "format": "enum"
+          },
+          "Extra": {
+            "$ref": "#/components/schemas/GroupDefinition"
+          },
+          "CustomProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationCustomProperty"
+            }
+          },
+          "IsCustomPropertiesPresent": {
+            "type": "boolean"
+          },
+          "Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Deleted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DeletedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ModifiedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.GroupDto"
+      },
+      "Innergy.Dto.MapDto": {
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string"
+          },
+          "Definition": {
+            "type": "string"
+          },
+          "FolderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "TagMap": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.MapDto"
+      },
       "Innergy.Dto.MeterConsumptionStub": {
         "type": "object",
         "properties": {
@@ -4674,352 +5743,222 @@
         },
         "format": "Innergy.Dto.MeterConsumptionStub"
       },
-      "Innergy.Dto.NatureGroupToNatureDto": {
+      "Innergy.Dto.OperatDefinition": {
         "type": "object",
         "properties": {
+          "Organization": {
+            "type": "string"
+          },
+          "Reference": {
+            "type": "string"
+          },
+          "WeatherStation": {
+            "type": "string"
+          },
+          "ChargingStationCount": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "CategoryCode": {
+            "type": "string"
+          },
+          "Code": {
+            "type": "string"
+          },
+          "ReportingStartDay": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReportingStartMonth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AreaTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "HeatingTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "CoolingTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ColdChainTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "CommercialColdTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ConservationTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Indicators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.OperatIndicatorDefinition"
+            }
+          }
+        },
+        "format": "Innergy.Dto.OperatDefinition"
+      },
+      "Innergy.Dto.OperatIndicatorDefinition": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "integer",
+            "description": "\r\n\r\n    ManualEntry = 0 \r\n    Trend = 1 \r\n    Nature = 2 \r\n    CustomProperty = 3 \r\n    Planning = 4 \r\n    Calendar = 5 \r\n",
+            "format": "enum"
+          },
           "Id": {
             "type": "integer",
             "format": "int64"
           },
-          "NatureGroupId": {
+          "Reference": {
+            "type": "string"
+          },
+          "TrendFunction": {
+            "type": "integer",
+            "description": "\r\n\r\n    None = 0 \r\n    Average = 1 \r\n    Min = 2 \r\n    Max = 3 \r\n    Sum = 4 \r\n    First = 5 \r\n    Last = 6 \r\n    Count = 7 \r\n    MinDate = 8 \r\n    MaxDate = 9 \r\n",
+            "format": "enum"
+          },
+          "TrendMax": {
+            "type": "number",
+            "format": "double"
+          },
+          "TrendPeriod": {
+            "type": "integer",
+            "description": "\r\n\r\n    None = 0 \r\n    Second = 1 \r\n    Minute = 2 \r\n    Hour = 3 \r\n    Day = 4 \r\n    Week = 5 \r\n    Month = 6 \r\n    Year = 7 \r\n    Decade = 8 \r\n    Quarter = 9 \r\n    Semester = 10 \r\n",
+            "format": "enum"
+          },
+          "PlanningStates": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.OperatIndicatorDefinition"
+      },
+      "Innergy.Dto.RecipientDto": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "integer",
+            "description": "\r\n\r\n    User = 0 \r\n    Group = 1 \r\n    Location = 2 \r\n",
+            "format": "enum"
+          },
+          "Id": {
             "type": "integer",
             "format": "int64"
           },
-          "NatureId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "Negative": {
-            "type": "boolean"
-          }
-        },
-        "format": "Innergy.Dto.NatureGroupToNatureDto"
-      },
-      "Innergy.Dto.Objects.Innergy.Dto.LicenseStatusDto": {
-        "type": "object",
-        "properties": {
-          "IsValid": {
-            "type": "boolean"
-          },
-          "State": {
+          "Path": {
             "type": "string"
           },
-          "Error": {
-            "type": "string"
-          }
-        },
-        "format": "Innergy.Dto.Objects.Innergy.Dto.LicenseStatusDto"
-      },
-      "Innergy.Dto.Objects.Innergy.Dto.ScanBillProcessParameterDto": {
-        "type": "object",
-        "properties": {
-          "RuleKey": {
+          "Login": {
             "type": "string"
           },
-          "PdfPaths": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "format": "Innergy.Dto.Objects.Innergy.Dto.ScanBillProcessParameterDto"
-      },
-      "Innergy.Dto.Objects.Innergy.Dto.ScanBillRuleDto": {
-        "type": "object",
-        "properties": {
-          "Key": {
-            "type": "string"
-          },
-          "Label": {
-            "type": "string"
-          },
-          "Nature": {
+          "Password": {
             "type": "string"
           },
           "IsActive": {
             "type": "boolean"
-          }
-        },
-        "format": "Innergy.Dto.Objects.Innergy.Dto.ScanBillRuleDto"
-      },
-      "Innergy.Dto.Objects.Innergy.Dto.UploadScanBillRuleParameterDto": {
-        "type": "object",
-        "properties": {
-          "Key": {
-            "type": "string"
           },
-          "XmlContent": {
-            "type": "string"
-          },
-          "IsActive": {
+          "IsEncrypted": {
             "type": "boolean"
           }
         },
-        "format": "Innergy.Dto.Objects.Innergy.Dto.UploadScanBillRuleParameterDto"
+        "format": "Innergy.Dto.RecipientDto"
       },
-      "Innergy.Dto.Objects.ScanBillAutoStateDto": {
+      "Innergy.Dto.ReportBookDto": {
         "type": "object",
         "properties": {
-          "LastRunUtc": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "NextRunUtc": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "LastResult": {
-            "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillProcessResultDto"
-          }
-        },
-        "format": "Innergy.Dto.Objects.ScanBillAutoStateDto"
-      },
-      "Innergy.Dto.Objects.ScanBillFlatRowDto": {
-        "type": "object",
-        "properties": {
-          "PdfName": {
+          "Definition": {
             "type": "string"
           },
-          "RuleKey": {
-            "type": "string"
-          },
-          "Error": {
-            "type": "string"
-          },
-          "InvoiceNumber": {
-            "type": "string"
-          },
-          "InvoiceDate": {
-            "type": "string"
-          },
-          "DueDate": {
-            "type": "string"
-          },
-          "PaymentTerms": {
-            "type": "string"
-          },
-          "TotalTtc": {
-            "type": "string"
-          },
-          "MeterNumber": {
-            "type": "string"
-          },
-          "PreviousReading": {
-            "type": "string"
-          },
-          "CurrentReading": {
-            "type": "string"
-          },
-          "PeriodStart": {
-            "type": "string"
-          },
-          "PeriodEnd": {
-            "type": "string"
-          },
-          "Consumption": {
-            "type": "string"
-          },
-          "AveragePowerU": {
-            "type": "string"
-          },
-          "ContractNumber": {
-            "type": "string"
-          },
-          "PdsReference": {
-            "type": "string"
-          },
-          "CustomerReference": {
-            "type": "string"
-          },
-          "ServiceLabel": {
-            "type": "string"
-          },
-          "SubstationNumber": {
-            "type": "string"
-          },
-          "CounterMeterId": {
+          "FolderId": {
             "type": "integer",
             "format": "int64"
           },
-          "FolderName": {
-            "type": "string"
+          "Created": {
+            "type": "string",
+            "format": "date-time"
           },
-          "FolderPath": {
+          "Deleted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DeletedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ModifiedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
             "type": "string"
           }
         },
-        "format": "Innergy.Dto.Objects.ScanBillFlatRowDto"
+        "format": "Innergy.Dto.ReportBookDto"
       },
-      "Innergy.Dto.Objects.ScanBillFolderConfigDto": {
+      "Innergy.Dto.ReportDto": {
         "type": "object",
         "properties": {
-          "FolderPath": {
+          "Title": {
             "type": "string"
           },
-          "RuleKey": {
+          "Definition": {
             "type": "string"
           },
-          "IsEnabled": {
-            "type": "boolean"
+          "FolderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
           },
           "Name": {
             "type": "string"
           },
-          "CounterTrendId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "TariffTotalTrendId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "TariffUnitPriceTrendId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "CounterMeterId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "IncludeSubFolders": {
-            "type": "boolean"
-          },
-          "AutoUpdateTariff": {
-            "type": "boolean"
-          },
-          "TariffId": {
-            "type": "integer",
-            "format": "int64"
+          "TagDashboard": {
+            "type": "string"
           }
         },
-        "format": "Innergy.Dto.Objects.ScanBillFolderConfigDto"
+        "format": "Innergy.Dto.ReportDto"
       },
-      "Innergy.Dto.Objects.ScanBillOptionsDto": {
+      "Innergy.Dto.ReportListDto": {
         "type": "object",
         "properties": {
-          "Folders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillFolderConfigDto"
-            }
-          },
-          "Schedule": {
-            "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillScheduleDto"
-          }
-        },
-        "format": "Innergy.Dto.Objects.ScanBillOptionsDto"
-      },
-      "Innergy.Dto.Objects.ScanBillProcessResultDto": {
-        "type": "object",
-        "properties": {
-          "Ok": {
-            "type": "boolean"
-          },
-          "Error": {
+          "Definition": {
             "type": "string"
           },
-          "Summary": {
-            "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillProcessSummaryDto"
-          },
-          "Rows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Innergy.Dto.Objects.ScanBillFlatRowDto"
-            }
-          }
-        },
-        "format": "Innergy.Dto.Objects.ScanBillProcessResultDto"
-      },
-      "Innergy.Dto.Objects.ScanBillProcessSummaryDto": {
-        "type": "object",
-        "properties": {
-          "PdfCount": {
+          "Id": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
-          "PdfSuccess": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PdfFailed": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalRows": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "format": "Innergy.Dto.Objects.ScanBillProcessSummaryDto"
-      },
-      "Innergy.Dto.Objects.ScanBillRescanFolderParameterDto": {
-        "type": "object",
-        "properties": {
-          "FolderPath": {
+          "Name": {
             "type": "string"
-          },
-          "IncludeSubFolders": {
-            "type": "boolean"
-          },
-          "ClearProcessedForFolder": {
-            "type": "boolean"
-          },
-          "ResetTrends": {
-            "type": "boolean"
           }
         },
-        "format": "Innergy.Dto.Objects.ScanBillRescanFolderParameterDto"
-      },
-      "Innergy.Dto.Objects.ScanBillScheduleDto": {
-        "type": "object",
-        "properties": {
-          "IsEnabled": {
-            "type": "boolean"
-          },
-          "Frequency": {
-            "type": "integer",
-            "description": "\r\n\r\n    Daily = 1 \r\n    Weekly = 2 \r\n    Monthly = 3 \r\n    EveryXMinutes = 4 \r\n",
-            "format": "enum"
-          },
-          "Hour": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Minute": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "EveryMinutes": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "DayOfWeek": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "DayOfMonth": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "format": "Innergy.Dto.Objects.ScanBillScheduleDto"
-      },
-      "Innergy.Dto.SimpleResult": {
-        "type": "object",
-        "properties": {
-          "Success": {
-            "type": "boolean"
-          },
-          "Error": {
-            "type": "string"
-          },
-          "ErrorCode": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "format": "Innergy.Dto.SimpleResult"
+        "format": "Innergy.Dto.ReportListDto"
       },
       "Innergy.Dto.SiteDto": {
         "type": "object",
@@ -5105,6 +6044,219 @@
           }
         },
         "format": "Innergy.Dto.SiteUserDto"
+      },
+      "Innergy.Dto.TariffDto": {
+        "type": "object",
+        "properties": {
+          "TrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.TariffItemDto"
+            }
+          },
+          "IsItemsPresent": {
+            "type": "boolean"
+          },
+          "RemoteId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "PlanningId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "UnitId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Unit": {
+            "type": "string"
+          },
+          "IsMultiState": {
+            "type": "boolean"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.TariffDto"
+      },
+      "Innergy.Dto.TariffItemDto": {
+        "type": "object",
+        "properties": {
+          "ParentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "Color": {
+            "type": "string"
+          },
+          "PriceTrendId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.TariffItemDto"
+      },
+      "Innergy.Dto.TrendGroupAxisDto": {
+        "type": "object",
+        "properties": {
+          "Label": {
+            "type": "string"
+          },
+          "Min": {
+            "type": "number",
+            "format": "double"
+          },
+          "Max": {
+            "type": "number",
+            "format": "double"
+          },
+          "Position": {
+            "type": "integer",
+            "description": "\r\n\r\n    Left = 0 \r\n    Right = 1 \r\n",
+            "format": "enum"
+          }
+        },
+        "format": "Innergy.Dto.TrendGroupAxisDto"
+      },
+      "Innergy.Dto.TrendGroupDto": {
+        "type": "object",
+        "properties": {
+          "Duration": {
+            "type": "string"
+          },
+          "Trends": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.TrendGroupItemDto"
+            }
+          },
+          "Axes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Innergy.Dto.TrendGroupAxisDto"
+            }
+          },
+          "AveragePeriod": {
+            "type": "integer",
+            "description": "\r\n\r\n    None = 0 \r\n    Second = 1 \r\n    Minute = 2 \r\n    Hour = 3 \r\n    Day = 4 \r\n    Week = 5 \r\n    Month = 6 \r\n    Year = 7 \r\n    Decade = 8 \r\n    Quarter = 9 \r\n    Semester = 10 \r\n",
+            "format": "enum"
+          },
+          "FolderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "TagMultiTrend": {
+            "type": "string"
+          },
+          "TagMultiTrends": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.TrendGroupDto"
+      },
+      "Innergy.Dto.TrendGroupItemDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ObjectId": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "ObjectIdStr": {
+            "type": "string"
+          },
+          "Reference": {
+            "type": "string"
+          },
+          "Axis": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Color": {
+            "type": "string"
+          },
+          "Label": {
+            "type": "string"
+          },
+          "Display": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "GraphType": {
+            "type": "integer",
+            "description": "\r\n\r\n    Default = 0 \r\n    Bar = 1 \r\n    Line = 2 \r\n    StepLine = 3 \r\n    SmoothLine = 4 \r\n    Area = 5 \r\n    StepArea = 6 \r\n    SmoothArea = 7 \r\n",
+            "format": "enum"
+          },
+          "BarType": {
+            "type": "integer",
+            "description": "\r\n\r\n    Clustered = 0 \r\n    Stacked = 1 \r\n    Stacked100 = 2 \r\n",
+            "format": "enum"
+          }
+        },
+        "format": "Innergy.Dto.TrendGroupItemDto"
+      },
+      "Innergy.Dto.UserGroupDto": {
+        "type": "object",
+        "properties": {
+          "UserIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "SiteIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "IsInternal": {
+            "type": "boolean"
+          },
+          "Identifier": {
+            "type": "string"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "Innergy.Dto.UserGroupDto"
       },
       "Location": {
         "type": "object",
@@ -5615,6 +6767,149 @@
         },
         "format": "MeterDataHistoDto"
       },
+      "MeterDefinition": {
+        "type": "object",
+        "properties": {
+          "PhotoFilename": {
+            "type": "string"
+          },
+          "ClientReference": {
+            "type": "string"
+          },
+          "Manufacturer": {
+            "type": "string"
+          },
+          "Model": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          },
+          "InstallationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Status": {
+            "type": "integer",
+            "description": "\r\n\r\n    Unknown = 0 \r\n    Active = 1 \r\n    OutOfService = 2 \r\n    UnderMaintenance = 3 \r\n",
+            "format": "enum"
+          },
+          "Owner": {
+            "type": "integer",
+            "description": "\r\n\r\n    Unknown = 0 \r\n    Private = 1 \r\n    Collectivity = 2 \r\n    EnergyProvider = 3 \r\n",
+            "format": "enum"
+          },
+          "Localization": {
+            "type": "string"
+          },
+          "Note": {
+            "type": "string"
+          },
+          "MeasuringRange": {
+            "type": "string"
+          },
+          "NominalValue": {
+            "type": "string"
+          },
+          "MaximumValue": {
+            "type": "string"
+          },
+          "AccuracyClass": {
+            "type": "string"
+          },
+          "TransformationRatio": {
+            "type": "string"
+          },
+          "WiringDiagramFilename": {
+            "type": "string"
+          },
+          "DataSheetFilename": {
+            "type": "string"
+          },
+          "LastMaintenanceDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "NextControlDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "MIDRegistrationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "CalibrationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TechnicalContact": {
+            "type": "string"
+          },
+          "AdditionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeterPropertyDefinition"
+            }
+          }
+        },
+        "format": "MeterDefinition"
+      },
+      "MeterProperty": {
+        "type": "object",
+        "properties": {
+          "MeterId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Extra": {
+            "$ref": "#/components/schemas/MeterDefinition"
+          },
+          "Created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Deleted": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DeletedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ModifiedUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "MeterProperty"
+      },
+      "MeterPropertyDefinition": {
+        "type": "object",
+        "properties": {
+          "Label": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          }
+        },
+        "format": "MeterPropertyDefinition"
+      },
       "MeterValueDto": {
         "required": [
           "d"
@@ -5786,6 +7081,62 @@
           }
         },
         "format": "NatureUnitDefinition"
+      },
+      "PointAlarmLevel": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "number",
+            "format": "double"
+          },
+          "Color": {
+            "type": "string"
+          },
+          "AlarmEnabled": {
+            "type": "boolean"
+          },
+          "AlarmSeverity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AlarmCategoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "AlarmCondition": {
+            "type": "integer",
+            "description": "\r\n\r\n    None = 0 \r\n    Greater = 1 \r\n    GreaterOrEqual = 2 \r\n",
+            "format": "enum"
+          },
+          "AlarmDelay": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NormalDelay": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "format": "PointAlarmLevel"
+      },
+      "PointAlarmLevelSet": {
+        "type": "object",
+        "properties": {
+          "Levels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PointAlarmLevel"
+            }
+          },
+          "Id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "format": "PointAlarmLevelSet"
       },
       "System.Collections.Generic.KeyValuePair`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]": {
         "type": "object",
