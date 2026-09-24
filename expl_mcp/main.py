@@ -31,8 +31,7 @@ mcp = FastMCP.from_openapi(
     openapi_spec=spec,
     client=aree_api_client,
     name="EXPL",
-    # instructions="Provides an interface the EXPL unit's MSSQL database and AREE API.",
-    instructions="Provides an interface the EXPL unit's AREE API.",
+    instructions="Provides an interface the EXPL unit's AREE API. Use subagents to interact with the tools. Use pagination whenever available to avoid large responses.",
     auth=auth,
 )
 
